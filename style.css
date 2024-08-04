@@ -146,7 +146,8 @@ nav ul li a {
 
 .nav-logo {
     height: 50px;
-    width: auto;  
+    width: auto;
+cursor:pointer;
 }
 
 nav ul li a:hover {
