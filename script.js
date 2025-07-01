@@ -1,3 +1,4 @@
+//script js file
 document.addEventListener('DOMContentLoaded', function() {
     // Follow button toggle
     const followButtons = document.querySelectorAll('.follow-btn');
