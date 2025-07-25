@@ -1,6 +1,6 @@
-//script js file
+// logic file of script js 
 document.addEventListener('DOMContentLoaded', function() {
-    // Follow button toggle
+    // Follow button toggle code 
     const followButtons = document.querySelectorAll('.follow-btn');
     followButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Modal functionality
+    // Modal functionality code 
     const modal = document.getElementById('album-modal');
     const closeModalButton = document.querySelector('.modal .close-btn');
     const knowMoreButtons = document.querySelectorAll('.know-more-btn');
