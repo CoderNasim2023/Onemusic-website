@@ -148,10 +148,11 @@ nav ul li a {
     height: 50px;
     width: auto;
 cursor:pointer;
+border-radius: 50%;
 }
 
 nav ul li a:hover {
-    color: orangered;
+    color: yellowgreen;
 }
 
 .intro {
@@ -181,17 +182,17 @@ nav ul li a:hover {
     cursor: pointer;
 }
 
-.intro-right {
+.intro-right{
     flex: 1;
     display: flex;
     justify-content: center;
 }
-
-#intro-svg {
-    width: 200px;
-    height: 200px;
-    animation: rotate 5s linear infinite;
+.intro-right img{ 
+    width: 300px;
+    flex-direction: column;
+        justify-content: end;
 }
+
 
 @keyframes rotate {
     0% {
@@ -249,6 +250,7 @@ nav ul li a:hover {
 .follow-btn.following {
     background-color: green;
     color: #fff;
+    border-radius: 15px;
 }
 
 .search-bar {
@@ -262,7 +264,7 @@ nav ul li a:hover {
     font-size: 18px;
     border-radius: 20px;
     border: 1px solid #ccc;
-    width: 300px;
+    width: 600px;
 }
 
 .search-icon {
