@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", () => {
       button.classList.toggle("following");
       button.textContent = button.classList.contains("following")
-        ? "Following"
+        ? "Now Following"
         : "Follow";
     });
   });
@@ -27,8 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("modal-album-cover").src = cover;
       document.getElementById("modal-album-title").textContent = title;
       document.getElementById("modal-album-artist").textContent = artist;
-      document.getElementById("modal-album-description").textContent =
-        description;
+      document.getElementById("modal-album-description").textContent = description;
 
       modal.style.display = "flex";
     });
