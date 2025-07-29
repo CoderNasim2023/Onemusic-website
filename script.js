@@ -1,4 +1,4 @@
-// logic file of script js
+
 document.addEventListener("DOMContentLoaded", function () {
   // Follow button  code
   const followButton = document.querySelectorAll(".follow-btn");
