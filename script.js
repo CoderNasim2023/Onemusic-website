@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button.addEventListener("click", () => {
       button.classList.toggle("following");
       button.textContent = button.classList.contains("following")
-        ? "Now Following"
+        ? "Following"
         : "Follow";
     });
   });
