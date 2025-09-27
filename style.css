@@ -160,7 +160,7 @@ nav ul li a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 50px;
-  background-color: #f0f0f0;
+  background-color: bisque;
   flex-wrap: wrap;
 }
 
@@ -179,17 +179,23 @@ nav ul li a:hover {
 .intro-left button {
   padding: 12px 20px;
   font-size: 18px;
+  border-radius: 8px;
   cursor: pointer;
+ 
+}
+.intro-left button:hover{
+  background-color: crimson;
+    color: white;
 }
 
-.intro-right {
+/* .intro-right {
  
   
  
-}
+} */
 .intro-right img {
-  width: 800px;
-  flex-direction: column;
+  width: 730px;
+  /* flex-direction: column; */
  
 }
 
@@ -206,7 +212,7 @@ nav ul li a:hover {
 #recommended-albums,
 #user-reviews {
   padding: 50px;
-  background-color: #f9f9f9;
+  background-color: #dd9693;
   text-align: center;
 }
 
@@ -293,9 +299,18 @@ nav ul li a:hover {
   display: none;
   margin-top: 10px;
   padding: 10px 20px;
+  text-align: center;
+  align-items: center;
+  border-radius: 8px;
   cursor: pointer;
+  background-color: black;
+  color: white;
 }
 
+/* .know-more-btn:hover{
+  background-color: crimson ;
+  color: white;
+} */
 .album-card:hover .know-more-btn {
   display: block;
 }
@@ -400,9 +415,7 @@ footer a:hover {
     font-size: 20px;
   }
 
-  .intro-left button {
-    font-size: 16px;
-  }
+  
 
   nav ul {
     flex-direction: column;
@@ -440,7 +453,105 @@ footer a:hover {
     font-size: 16px;
   }
 
-  .intro-left button {
-    font-size: 14px;
+  
+}
+
+.play-btn{
+  border: 1px solid black;
+    color: black;
+    padding: 14px 21px;
+    border-radius: 6px;
+   
+}
+.pause-btn{
+  background-color: crimson;
+  color: white;
+  padding: 14px 21px;
+  border-radius: 6px;
+}
+
+/* --- Footer Styling --- */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 40px 20px;
+  /* Increased padding */
+  text-align: center;
+  /* Center content fallback */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  /* Distribute space evenly */
+  align-items: flex-start;
+  /* Align columns to the top */
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-column {
+  width: 200px;
+  /* Base width for columns */
+  margin: 20px;
+  text-align: left;
+  /* Align text within columns */
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: yellowgreen;
+  /* Highlight headers */
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.footer-social .social-media a {
+  display: inline-block;
+  margin-right: 15px;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer-bottom {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  font-size: 14px;
+}
+
+/* Responsive fix for Footer columns */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-column {
+    width: 90%;
+    text-align: center;
+    /* Center content on mobile */
+    margin: 15px 0;
   }
 }
