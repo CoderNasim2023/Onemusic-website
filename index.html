@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to OneMusic.com | one stop solution To listen music online</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
-                <!-- Top Navigation Bar -->
-                <!-- Top Navigation Bar -->
-            <nav>
-                <ul>
-                    <li><img src="logo.png" alt="Logo" class="nav-logo" title="OneMusic.com"></li>
-                    <li><a href="#home" id="home-link">Home</a></li>
-                    <li><a href="#featured-playlists" id="playlists-link">Featured Playlists</a></li>
-                    <li><a href="#recommended-albums" id="albums-link">Recommended Albums</a></li>
-                    <li><a href="#user-reviews" id="reviews-link">User Reviews</a></li>
-                </ul>
-            </nav>
 
-            
+<body>
+
+    <!-- Top Navigation Bar -->
+    <!-- Top Navigation Bar -->
+    <nav>
+        <ul>
+            <li><img src="logo.png" alt="Logo" class="nav-logo" title="Onemusic"></li>
+            <li><a href="#home" id="home-link">Home</a></li>
+            <li><a href="#featured-playlists" id="playlists-link">Featured Playlists</a></li>
+            <li><a href="#recommended-albums" id="albums-link">Recommended Albums</a></li>
+            <li><a href="#user-reviews" id="reviews-link">User Reviews</a></li>
         </ul>
     </nav>
 
-    
+
+    </ul>
+    </nav>
+
+
     <!-- Intro Section -->
     <section class="intro">
         <div class="intro-left">
             <h1>Welcome to OneMusic</h1>
             <p>Your ultimate music platform</p>
-            <button onclick="document.getElementById('featured-playlists').scrollIntoView({ behavior: 'smooth' });">Explore Featured Playlists</button>
+            <button
+                onclick="document.getElementById('featured-playlists').scrollIntoView({ behavior: 'smooth' });">Explore
+                Featured Playlists</button>
         </div>
         <div class="intro-right">
-            <img src="musiclisten.jpg" alt="Logo">
+            <img src="musiclogo.png" alt="Logo">
         </div>
     </section>
 
@@ -43,35 +47,35 @@
         <p>Discover our handpicked playlists just for you</p>
         <div class="playlists">
             <div class="playlist-card">
-                <img src="playlist1.webp" alt="Playlist 1">
+                <img src="Barrih Lete aana .webp" title="Playlist 1">
                 <h3>Heartbroken Melody's</h3>
                 <p>Relax and unwind with this soothing playlist with Darshan Raval</p>
                 <span class="song-count">15 Songs</span>
                 <button class="follow-btn">Follow</button>
             </div>
             <div class="playlist-card">
-                <img src="playlist2.jpg" alt="Playlist 2">
+                <img src="hawa banke.jpg" alt="Playlist 2" title="Playlist 2">
                 <h3>Best Melody Hits</h3>
                 <p>Get pumped with these energetic tracks</p>
                 <span class="song-count">20 Songs</span>
                 <button class="follow-btn">Follow</button>
             </div>
             <div class="playlist-card">
-                <img src="playlist3.webp" alt="Playlist 3">
+                <img src="Shahiba song.webp" alt="Playlist 3" title="Playlist 3">
                 <h3>Heartbroken Melody Hits</h3>
                 <p>Get pumped with these energetic tracks</p>
                 <span class="song-count">29 Songs</span>
                 <button class="follow-btn">Follow</button>
             </div>
             <div class="playlist-card">
-                <img src="playlist4.webp" alt="Playlist 4">
+                <img src="Chogada.webp" alt="Playlist 4" title="Playlist 4">
                 <h3> Chill Vibes Hits</h3>
                 <p>Get pumped with these energetic tracks</p>
                 <span class="song-count">17 Songs</span>
                 <button class="follow-btn">Follow</button>
             </div>
             <div class="playlist-card">
-                <img src="playlist5.webp" alt="Playlist 5">
+                <img src="Rabba Meher kari.jpg" alt="Playlist 5" title="Playlist 5">
                 <h3>Best Melody Hits</h3>
                 <p>Get pumped with these energetic tracks</p>
                 <span class="song-count">26 Songs</span>
@@ -89,46 +93,98 @@
             <span class="search-icon" title="search album">&#128269;</span>
         </div>
         <div class="albums">
-            <div class="album-card">
+            <div class="album-card" data-song="songs/Asal Mein .mp3">
                 <img src="asal mein.jpg" alt="Album 1">
                 <h3>Asal Mein</h3>
                 <p>Darshan Raval</p>
-                <p class="description">Listen to Asal Mein online. Asal Mein is a Hindi language song and is sung by Darshan Raval. Asal Mein, from the album Asal Mein, was released in the year 2020.</p>
+                <p class="description">Listen to Asal Mein online. Asal Mein is a Hindi language song and is sung by
+                    Darshan Raval. Asal Mein, from the album Asal Mein, was released in the year 2020.</p>
                 <button class="know-more-btn">Know More</button>
             </div>
-            <div class="album-card">
+            <div class="album-card" data-song="songs/Hawa Banke.mp3">
                 <img src="hawa banke.jpg" alt="Album 2">
                 <h3>Hawa Banke </h3>
                 <p>Darshan Raval</p>
-                <p class="description">Listen to Hawa Banke online. Hawa Banke is a Hindi language song and is sung by Darshan Raval and Simran Choudhary. Listen On online from Onemusic.com</p>
+                <p class="description">Listen to Hawa Banke online. Hawa Banke is a Hindi language song and is sung by
+                    Darshan Raval and Simran Choudhary. Listen On online from Onemusic.com</p>
                 <button class="know-more-btn">Know More</button>
             </div>
-            <div class="album-card">
-                <img src="song4.jpg" alt="Album 3">
+            <div class="album-card" data-song="songs/Tera Zikr .mp3">
+                <img src="Tera Zikr.jpg" alt="Album 3">
                 <h3>Tera Zikr </h3>
                 <p>Darshan Raval</p>
-                <p class="description">Tera Zikr” is a popular Hindi song by Darshan Raval, a singer, composer, and songwriter who rose to fame from the reality show India’s Raw Star. The song was released by Sony Music India in 2017 and has received over 286 million views on YouTube. </p>
+                <p class="description">Tera Zikr” is a popular Hindi song by Darshan Raval, a singer, composer, and
+                    songwriter who rose to fame from the reality show India’s Raw Star. The song was released by Sony
+                    Music India in 2017 and has received over 286 million views on YouTube. </p>
                 <button class="know-more-btn">Know More</button>
             </div>
-            <div class="album-card">
-                <img src="song3.jpg" alt="Album 4">
+            <div class="album-card" data-song="songs/Baarish lete aana .mp3">
+                <img src="Barrih Lete aana .webp" alt="Album 3">
+                <h3>Barrih Lete aana</h3>
+                <p>Darshan Raval</p>
+                <p class="description">Tera Zikr” is a popular Hindi song by Darshan Raval, a singer, composer, and
+                    songwriter who rose to fame from the reality show India’s Raw Star. The song was released by Sony
+                    Music India in 2017 and has received over 286 million views on YouTube. </p>
+                <button class="know-more-btn">Know More</button>
+            </div>
+            <div class="album-card" data-song="songs/Rabba Mehar Kari.mp3">
+                <img src="Rabba Meher kari.jpg" alt="Album 4">
                 <h3>Rabba Meher Kari</h3>
                 <p>Darshan Raval</p>
-                <p class="description"> “Rabba Mehar Kari” is a romantic song by Darshan Raval, featuring Diksha Singh. In this heartfelt track, Darshan expresses his love and devotion for his beloved. The lyrics beautifully convey his feelings, as he asks for blessings from God for their relationship. He hopes to be with her not only in this life but also in the next. </p>
+                <p class="description"> “Rabba Mehar Kari” is a romantic song by Darshan Raval, featuring Diksha Singh.
+                    In this heartfelt track, </p>
+                <button class="know-more-btn">Know More</button>
+            </div>
+            <div class="album-card" data-song="songs/Chogada.mp3">
+                <img src="Chogada.webp" alt="Album 4">
+                <h3>Chogada</h3>
+                <p>Darshan Raval</p>
+                <p class="description"> Chogada </p>
+                <button class="know-more-btn">Know More</button>
+            </div>
+            <div class="album-card" data-song="songs/Mujhe Peene Do.mp3">
+                <img src="Mujhe penne do .webp" alt="Album 4">
+                <h3>Mujhe penne do</h3>
+                <p>Darshan Raval</p>
+                <p class="description"> Mujhe Peene do </p>
+                <button class="know-more-btn">Know More</button>
+            </div>
+            <div class="album-card" data-song="songs/Ek Tarfa.mp3">
+                <img src="Ek Tarfa.jpg" alt="Album 4">
+                <h3>Ek Tarfa</h3>
+                <p>Darshan Raval</p>
+                <p class="description"> Ek Tarfa </p>
+                <button class="know-more-btn">Know More</button>
+            </div>
+            <div class="album-card" data-song="songs/Judaiyaan.mp3">
+                <img src="Judaiyaan .webp" alt="Album 4">
+                <h3> Album :Judaiyaan</h3>
+                <p>Darshan Raval</p>
+                <p class="description"> Album : Judaiyaan </p>
+                <button class="know-more-btn">Know More</button>
+            </div>
+            <div class="album-card" data-song="songs/Shahiba.mp3">
+                <img src="Shahiba song.webp" alt="Album 4">
+                <h3> Album : Dard</h3>
+                <p>Darshan Raval</p>
+                <p class="description">Shahiba </p>
                 <button class="know-more-btn">Know More</button>
             </div>
         </div>
     </section>
 
+
+    <audio id="album-audio"></audio>
+
     <!-- User Reviews Section -->
     <section id="user-reviews">
-        <h2>User Reviews</h2>
+        <h2> Onemusic User Reviews</h2>
         <p>What our users are saying</p>
         <div class="reviews">
             <div class="review-card">
                 <img src="man1.jpg" alt="User 1">
                 <h3>John Doe</h3>
-                <p>Amazing platform! I love the variety of musics  available on this website</p>
+                <p>Amazing platform! I love the variety of musics available on this website</p>
             </div>
             <div class="review-card">
                 <img src="man2.jpg" alt="User 2">
@@ -156,8 +212,9 @@
     <footer>
         <div class="social-media">
             <a href="https://facebook.com" target="_blank">Facebook</a>
-            <a href="https://twitter.com" target="_blank">Twitter</a>
+            <a href="https://x.com" target="_blank">Twitter</a>
             <a href="https://instagram.com" target="_blank">Instagram</a>
+            <a href="https://github.com/CoderNasim2023" target="_blank">Github a/c </a>
         </div>
         <div class="footer-links">
             <a href="https://example.com/terms" target="_blank">Terms and Conditions</a>
@@ -174,10 +231,17 @@
             <h3 id="modal-album-title">Album Title</h3>
             <p id="modal-album-artist">Artist Name</p>
             <p id="modal-album-description">Brief description of the album.</p>
-            <button class="listen-now-btn">Listen Now</button>
+            <!-- <button class="listen-now-btn" id="listen-now-btn">Listen Now</button> -->
+
+            <button class="play-btn" id="play-btn">Play</button>
+            <button class="pause-btn" id="pause-btn">Pause</button>
+
+            <audio id="album-audio" src="songs/Hawa Banke.mp3"></audio>
+
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
