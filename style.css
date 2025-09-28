@@ -2,58 +2,278 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
-body {
-  font-family: Arial, sans-serif;
+
+/* --- Navigation Bar --- */
+nav {
+  background-color: #333;
+  padding: 10px 0;
+}
+
+nav ul {
+  list-style: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Added flex-wrap for responsiveness */
+  flex-wrap: wrap;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px 0;
+  /* Added padding for touch targets */
+  display: block;
+}
+
+.nav-logo {
+  height: 50px;
+  width: auto;
+  cursor: pointer;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+nav ul li a:hover {
+  color: yellowgreen;
+}
+
+/* --- Intro Section --- */
+.intro {
+  display: flex;
+  justify-content: space-around;
+  /* Changed to space-around for better spacing */
+  align-items: center;
+  padding: 50px 20px;
+  background-color: bisque;
+  flex-wrap: wrap;
+  /* Essential for responsiveness */
+  min-height: 400px;
+}
+
+.intro-left {
+  flex: 1;
+  min-width: 300px;
+  /* Ensure content doesn't get too squished */
+  padding-right: 20px;
+  text-align: left;
+}
+
+.intro-left h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.intro-left p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.intro-left button {
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.intro-left button:hover {
+  background-color: crimson;
+  color: white;
+}
+
+.intro-right img {
+  /* Removed fixed width, set max-width for fluid sizing */
+  max-width: 100%;
+  height: auto;
+  /* Added animation for visual appeal, you might need a keyframes block */
+  /* animation: rotate 10s linear infinite; */
+}
+
+/* --- Sections (Playlists, Albums, Reviews) --- */
+#featured-playlists,
+#recommended-albums,
+#user-reviews {
+  padding: 50px 20px;
+  /* Added horizontal padding */
+  background-color: #dd9693;
+  text-align: center;
 }
 
 #user-reviews {
-  padding: 50px;
   background-color: #f9f9f9;
-  text-align: center;
+  /* Reverting to original review color */
 }
 
+.playlists,
+.albums,
 .reviews {
   display: flex;
   justify-content: center;
+  /* Use center for consistent spacing on wrap */
+  margin-top: 30px;
   flex-wrap: wrap;
-  margin-top: 20px;
+  gap: 20px;
+  /* Added gap for consistent spacing between cards */
 }
 
+.playlist-card,
+.album-card,
 .review-card {
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 10px;
   padding: 20px;
-  width: 380px;
+  width: 200px;
+  /* Changed to a more flexible width for small screens */
+  flex-grow: 1;
+  max-width: 280px;
   text-align: center;
-  margin: 10px;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+.playlist-card:hover,
+.album-card:hover {
+  transform: translateY(-5px);
+  /* Changed to Y-axis for a lift effect */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.playlist-card img,
+.album-card img,
 .review-card img {
-  width: 100%;
-  height: 10em;
-  border-radius: 50%;
+  /* Standardized height for album/playlist covers */
   object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 10px;
 }
 
-.review-card h3 {
-  font-size: 20px;
+.review-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 10px;
+}
+
+
+/* --- Playlist Specifics --- */
+.song-count {
+  display: block;
+  /* Make it a block element to take its own line */
+  background-color: #555;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
   margin-top: 10px;
+  width: fit-content;
+  margin: 10px auto;
 }
 
-.review-card p {
-  font-size: 16px;
-  color: #555;
+.follow-btn {
+  padding: 10px 20px;
+  cursor: pointer;
+  border: 1px solid #000;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-top: 10px;
+  transition: background-color 0.3s, color 0.3s;
 }
+
+.follow-btn.following {
+  background-color: green;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+}
+
+/* --- Album Specifics (Search Bar) --- */
+.search-bar {
+  margin-top: 20px;
+  position: relative;
+  display: block;
+  /* Ensures it takes full width when needed */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search-bar input {
+  width: 100%;
+  /* Uses max-width from parent */
+  padding: 12px 40px 12px 20px;
+  /* Added space for the icon */
+  font-size: 16px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  /* Ensures padding is inside the width */
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #555;
+  pointer-events: none;
+  /* Prevents icon from capturing click events */
+}
+
+.album-card .description {
+  font-size: 14px;
+  color: #666;
+  height: 80px;
+  /* Fixed height for description text */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  /* Limit to 4 lines */
+  -webkit-box-orient: vertical;
+  margin-bottom: 15px;
+}
+
+.know-more-btn {
+  display: none;
+  margin: 10px auto 0;
+  /* Centered with margin auto */
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: none;
+  width: fit-content;
+}
+
+.album-card:hover .know-more-btn {
+  display: block;
+}
+
+/* --- Review Form --- */
 
 .review-form {
   margin-top: 50px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .review-form h3 {
@@ -67,28 +287,22 @@ body {
   gap: 15px;
 }
 
-.form-group {
-  position: relative;
-}
-
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.review-form input,
+.review-form textarea {
+  /* Combined input/textarea styles */
   width: 100%;
   padding: 15px;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #007bff;
-}
-
-.form-group textarea {
+.review-form textarea {
   resize: vertical;
-  height: 150px;
+  height: 100px;
 }
 
 .review-form button {
@@ -106,404 +320,37 @@ body {
   background-color: #0056b3;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  .reviews {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .review-card {
-    width: 80%;
-    margin: 10px 0;
-  }
-}
-
-nav {
-  background-color: #333;
-  padding: 10px 0;
-}
-
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-nav ul li {
-  margin: 0 15px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.nav-logo {
-  height: 50px;
-  width: auto;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-nav ul li a:hover {
-  color: yellowgreen;
-}
-
-.intro {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px;
-  background-color: bisque;
-  flex-wrap: wrap;
-}
-
-.intro-left {
-  flex: 1;
-}
-
-.intro-left h1 {
-  font-size: 48px;
-}
-
-.intro-left p {
-  font-size: 24px;
-}
-
-.intro-left button {
-  padding: 12px 20px;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
- 
-}
-.intro-left button:hover{
-  background-color: crimson;
-    color: white;
-}
-
-/* .intro-right {
- 
-  
- 
-} */
-.intro-right img {
-  width: 730px;
-  /* flex-direction: column; */
- 
-}
-
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-#featured-playlists,
-#recommended-albums,
-#user-reviews {
-  padding: 50px;
-  background-color: #dd9693;
-  text-align: center;
-}
-
-.playlists,
-.albums,
-.reviews {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
-.playlist-card,
-.album-card,
-.review-card {
-  background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  width: 200px;
-  text-align: center;
-  position: relative;
-  transition: transform 0.3s;
-  margin: 10px;
-}
-
-.playlist-card img,
-.album-card img,
-.review-card img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.playlist-card:hover {
-  transform: scale(1.05);
-}
-.song-count {
-  position: relative;
-  top: 10px;
-  right: 10px;
-  background-color: #000;
-  color: #fff;
-  padding: 5px;
-  border-radius: 50%;
-}
-
-.follow-btn {
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.follow-btn.following {
-  background-color: green;
-  color: #fff;
-  border-radius: 15px;
-}
-
-.search-bar {
-  margin-top: 20px;
-  position: relative;
-  display: inline-block;
-}
-
-.search-bar input {
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 20px;
-  border: 1px solid #ccc;
-  width: 600px;
-}
-
-.search-icon {
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  font-size: 20px;
-}
-
-.album-card:hover {
-  transform: scale(1.05);
-}
-
-.know-more-btn {
-  display: none;
-  margin-top: 10px;
-  padding: 10px 20px;
-  text-align: center;
-  align-items: center;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-}
-
-/* .know-more-btn:hover{
-  background-color: crimson ;
-  color: white;
-} */
-.album-card:hover .know-more-btn {
-  display: block;
-}
-
-.review-form {
-  margin-top: 50px;
-}
-
-.review-form input,
-.review-form textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.review-form button {
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-}
-
-footer a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-.back-to-top {
-  padding: 10px 20px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-  width: 300px;
-}
-
-.modal-content img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-
-.listen-now-btn {
-  padding: 10px 20px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .intro {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .intro-left,
-  .intro-right {
-    flex: none;
-    width: 100%;
-  }
-
-  .intro-left h1 {
-    font-size: 36px;
-  }
-
-  .intro-left p {
-    font-size: 20px;
-  }
-
-  
-
-  nav ul {
-    flex-direction: column;
-  }
-
-  nav ul li {
-    margin: 10px 0;
-  }
-
-  .playlists,
-  .albums,
-  .reviews {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .playlist-card,
-  .album-card,
-  .review-card {
-    width: 80%;
-    margin: 10px 0;
-  }
-
-  .search-bar input {
-    width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .intro-left h1 {
-    font-size: 28px;
-  }
-
-  .intro-left p {
-    font-size: 16px;
-  }
-
-  
-}
-
-.play-btn{
-  border: 1px solid black;
-    color: black;
-    padding: 14px 21px;
-    border-radius: 6px;
-   
-}
-.pause-btn{
-  background-color: crimson;
-  color: white;
-  padding: 14px 21px;
-  border-radius: 6px;
-}
 
 /* --- Footer Styling --- */
 footer {
   background-color: #333;
   color: #fff;
   padding: 40px 20px;
-  /* Increased padding */
   text-align: center;
-  /* Center content fallback */
 }
 
 .footer-content {
   display: flex;
   justify-content: space-around;
-  /* Distribute space evenly */
   align-items: flex-start;
-  /* Align columns to the top */
   flex-wrap: wrap;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 .footer-column {
-  width: 200px;
-  /* Base width for columns */
+  /* Adjusted width for better responsiveness */
+  width: 180px;
+  min-width: 150px;
   margin: 20px;
   text-align: left;
-  /* Align text within columns */
+  box-sizing: border-box;
 }
 
 .footer-column h3 {
   font-size: 18px;
   margin-bottom: 15px;
   color: yellowgreen;
-  /* Highlight headers */
 }
 
 .footer-links {
@@ -528,8 +375,10 @@ footer {
 }
 
 .footer-social .social-media a {
-  display: inline-block;
-  margin-right: 15px;
+  display: block;
+  /* Make links stack vertically on mobile */
+  margin-right: 0;
+  margin-bottom: 10px;
   color: #fff;
   font-size: 14px;
 }
@@ -541,17 +390,200 @@ footer {
   font-size: 14px;
 }
 
-/* Responsive fix for Footer columns */
-@media (max-width: 768px) {
+.back-to-top {
+  padding: 10px 20px;
+  margin-top: 15px;
+  /* Adjusted spacing */
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: #555;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.back-to-top:hover {
+  background-color: #777;
+}
+
+/* --- Modal Styles --- */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Darker overlay */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  /* Ensure it's above everything */
+}
+.modal-album-title h3{
+margin-bottom: 6px;
+}
+.modal-content {
+  background-color: #fff;
+  padding: 15px;
+  /* Increased padding */
+  border-radius: 6px;
+  text-align: center;
+  /* Limited max-width */
+  position: relative;
+}
+
+.modal-content img {
+  border-radius: 6px;
+    text-align: center;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+}
+
+.play-btn,
+.pause-btn {
+  padding: 12px 25px;
+  border-radius: 6px;
+  margin: 15px 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.play-btn {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}
+
+.play-btn:hover {
+  background-color: lightgreen;
+  border-color: lightgreen;
+}
+
+.pause-btn {
+  background-color: crimson;
+  color: white;
+  border: none;
+}
+
+.pause-btn:hover {
+  background-color: darkred;
+}
+
+/* --- Responsive Design (Enhanced) --- */
+
+@media (max-width: 992px) {
+  .intro-left h1 {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 548px) {
+
+  /* --- Nav & Intro --- */
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+
+  .nav-logo {
+    margin: 0 0 10px 0;
+  }
+
+  .intro {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .intro-left,
+  .intro-right {
+    flex: none;
+    width: 100%;
+    padding: 0;
+  }
+
+  .intro-left {
+    order: 2;
+    /* Move text below the image on mobile */
+  }
+
+  .intro-right {
+    order: 1;
+    margin-bottom: 30px;
+  }
+
+  .intro-left h1 {
+    font-size: 36px;
+  }
+
+  .intro-left p {
+    font-size: 20px;
+  }
+
+  /* --- Sections (Cards) --- */
+  .playlists,
+  .albums,
+  .reviews {
+    gap: 15px;
+  }
+
+  .playlist-card,
+  .album-card,
+  .review-card {
+    width: 100%;
+    /* Take full width on smaller screens */
+    max-width: 350px;
+  }
+
+  /* --- Search Bar --- */
+  .search-bar {
+    max-width: 70%;
+  }
+
+  /* --- Footer --- */
   .footer-content {
     flex-direction: column;
     align-items: center;
   }
 
   .footer-column {
-    width: 90%;
+    width: 100%;
     text-align: center;
-    /* Center content on mobile */
     margin: 15px 0;
+  }
+
+  .footer-social .social-media a {
+    display: inline-block;
+    /* Revert to inline for social links */
+    margin: 0 10px 10px 10px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  /* Extra small screens */
+  #featured-playlists,
+  #recommended-albums,
+  #user-reviews {
+    padding: 30px 15px;
+  }
+
+  .intro-left h1 {
+    font-size: 28px;
   }
 }

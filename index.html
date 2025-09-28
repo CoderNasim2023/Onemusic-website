@@ -10,8 +10,6 @@
 
 <body>
 
-    <!-- Top Navigation Bar -->
-    <!-- Top Navigation Bar -->
     <nav>
         <ul>
             <li><img src="logo.png" alt="Logo" class="nav-logo" title="Onemusic"></li>
@@ -23,12 +21,7 @@
     </nav>
 
 
-    </ul>
-    </nav>
-
-
-    <!-- Intro Section -->
-    <section class="intro">
+    <section class="intro" id="home">
         <div class="intro-left">
             <h1>Welcome to OneMusic</h1>
             <p>Your ultimate music platform</p>
@@ -37,17 +30,16 @@
                 Featured Playlists</button>
         </div>
         <div class="intro-right">
-            <img src="musiclogo.png" alt="Logo">
+            <img src="musiclogo.png" alt="Logo" style="max-width: 100%; height: auto;">
         </div>
     </section>
 
-    <!-- Featured Playlists Section -->
     <section id="featured-playlists">
         <h2>Featured Playlists</h2>
         <p>Discover our handpicked playlists just for you</p>
         <div class="playlists">
             <div class="playlist-card">
-                <img src="Barrih Lete aana .webp" title="Playlist 1">
+                <img src="Barrish Lete aana .webp" alt="Playlist 1" title="Playlist 1">
                 <h3>Heartbroken Melody's</h3>
                 <p>Relax and unwind with this soothing playlist with Darshan Raval</p>
                 <span class="song-count">15 Songs</span>
@@ -84,7 +76,6 @@
         </div>
     </section>
 
-    <!-- Recommended Albums Section -->
     <section id="recommended-albums">
         <h2>Recommended Albums</h2>
         <p>Top picks for you</p>
@@ -113,14 +104,12 @@
                 <img src="Tera Zikr.jpg" alt="Album 3">
                 <h3>Tera Zikr </h3>
                 <p>Darshan Raval</p>
-                <p class="description">Tera Zikr” is a popular Hindi song by Darshan Raval, a singer, composer, and
-                    songwriter who rose to fame from the reality show India’s Raw Star. The song was released by Sony
-                    Music India in 2017 and has received over 286 million views on YouTube. </p>
+                <p class="description">Tera Zikr” is a popular Hindi song by Darshan Raval, a singer, composer, and songwriter who rose to fame from the reality show India’s Raw Star.  </p>
                 <button class="know-more-btn">Know More</button>
             </div>
             <div class="album-card" data-song="songs/Baarish lete aana .mp3">
-                <img src="Barrih Lete aana .webp" alt="Album 3">
-                <h3>Barrih Lete aana</h3>
+                <img src="Barrish Lete aana .webp" alt="Album 3">
+                <h3>Barrish Lete aana</h3>
                 <p>Darshan Raval</p>
                 <p class="description">Tera Zikr” is a popular Hindi song by Darshan Raval, a singer, composer, and
                     songwriter who rose to fame from the reality show India’s Raw Star. The song was released by Sony
@@ -131,7 +120,7 @@
                 <img src="Rabba Meher kari.jpg" alt="Album 4">
                 <h3>Rabba Meher Kari</h3>
                 <p>Darshan Raval</p>
-                <p class="description"> “Rabba Mehar Kari” is a romantic song by Darshan Raval, featuring Diksha Singh.
+                <p class="description"> “Rabba Meher Kari” is a romantic song by Darshan Raval, featuring Diksha Singh.
                     In this heartfelt track, </p>
                 <button class="know-more-btn">Know More</button>
             </div>
@@ -158,25 +147,21 @@
             </div>
             <div class="album-card" data-song="songs/Judaiyaan.mp3">
                 <img src="Judaiyaan .webp" alt="Album 4">
-                <h3> Album :Judaiyaan</h3>
+                <h3>Judaiyaan</h3>
                 <p>Darshan Raval</p>
                 <p class="description"> Album : Judaiyaan </p>
                 <button class="know-more-btn">Know More</button>
             </div>
             <div class="album-card" data-song="songs/Shahiba.mp3">
                 <img src="Shahiba song.webp" alt="Album 4">
-                <h3> Album : Dard</h3>
+                <h3>Shahiba</h3>
                 <p>Darshan Raval</p>
-                <p class="description">Shahiba </p>
+                <p class="description">Album : Dard </p>
                 <button class="know-more-btn">Know More</button>
             </div>
         </div>
     </section>
 
-
-    <audio id="album-audio"></audio>
-
-    <!-- User Reviews Section -->
     <section id="user-reviews">
         <h2> Onemusic User Reviews</h2>
         <p>What our users are saying</p>
@@ -200,18 +185,23 @@
         <div class="review-form">
             <h3>Submit Your Review</h3>
             <form>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <textarea placeholder="Your Review"></textarea>
+                <div class="form-group">
+                    <input type="text" placeholder="Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Your Review" required></textarea>
+                </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
-    
+
             <div class="footer-column">
                 <h3>OneMusic</h3>
                 <ul class="footer-links">
@@ -221,7 +211,7 @@
                     <li><a href="#">**For Artists / Creators**</a></li>
                 </ul>
             </div>
-    
+
             <div class="footer-column">
                 <h3>Explore & Support</h3>
                 <ul class="footer-links">
@@ -231,7 +221,7 @@
                     <li><a href="#">Help Center</a></li>
                 </ul>
             </div>
-    
+
             <div class="footer-column">
                 <h3>Legal</h3>
                 <ul class="footer-links">
@@ -241,26 +231,27 @@
                     <li><a href="#">Cookie Settings</a></li>
                 </ul>
             </div>
-    
+
             <div class="footer-column footer-social">
                 <h3>Connect</h3>
                 <div class="social-media">
                     <a href="https://x.com/ItsNasim254" target="_blank" title="Follow us on X (Twitter)">Twitter</a>
-                    <a href="https://instagram.com/ItsNasim254" target="_blank" title="Follow us on Instagram">Instagram</a>
-                    <a href="https://github.com/CoderNasim2023/Onemusic-website" target="_blank" title="Follow me on Github ">MY Github A/C</a>
+                    <a href="https://instagram.com/ItsNasim254" target="_blank"
+                        title="Follow us on Instagram">Instagram</a>
+                    <a href="https://github.com/CoderNasim2023/Onemusic-website" target="_blank"
+                        title="Follow me on Github ">MY Github A/C</a>
                 </div>
-                <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
-                    Back to Top
-                </button>
             </div>
-    
+
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024-2025 OneMusic, Inc. All rights reserved.</p>
+            <button class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+                Back to Top
+            </button>
         </div>
     </footer>
 
-    <!-- Modal -->
     <div id="album-modal" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
@@ -268,16 +259,12 @@
             <h3 id="modal-album-title">Album Title</h3>
             <p id="modal-album-artist">Artist Name</p>
             <p id="modal-album-description">Brief description of the album.</p>
-            <!-- <button class="listen-now-btn" id="listen-now-btn">Listen Now</button> -->
 
             <button class="play-btn" id="play-btn">Play</button>
             <button class="pause-btn" id="pause-btn">Pause</button>
 
-            <audio id="album-audio" src="songs/Hawa Banke.mp3"></audio>
-
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 
