@@ -506,12 +506,15 @@ margin-bottom: 6px;
 
   .intro {
     flex-direction: column;
-    text-align: center;
-    padding: 40px 20px;
+    /* text-align: center; */
+    padding: 40px 40px;
+    
+   
   }
 
   .intro-left,
   .intro-right {
+    
     flex: none;
     width: 100%;
     padding: 0;
@@ -529,10 +532,12 @@ margin-bottom: 6px;
 
   .intro-left h1 {
     font-size: 36px;
+   
   }
 
   .intro-left p {
     font-size: 20px;
+    
   }
 
   /* --- Sections (Cards) --- */
