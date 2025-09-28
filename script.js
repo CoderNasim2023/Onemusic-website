@@ -4,38 +4,49 @@ document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("album-modal");
   const closeModalButton = document.querySelector(".modal .close-btn");
   const knowMoreButtons = document.querySelectorAll(".know-more-btn");
+  const searchInput = document.querySelector('.search-bar input');
+  const albumCards = document.querySelectorAll('.album-card');
 
-  // অডিও প্লেয়ার এবং নিয়ন্ত্রণ বাটন
-  const audioPlayer = document.getElementById('album-audio');
+  // IMPORTANT: Dynamically creating the audio element if it doesn't exist
+  let audioPlayer = document.getElementById('album-audio');
+  if (!audioPlayer) {
+    audioPlayer = new Audio();
+    audioPlayer.id = 'album-audio';
+    // Append it to the body or modal-content for easy access/debugging
+    document.body.appendChild(audioPlayer);
+  }
+
   const playBtn = document.getElementById('play-btn');
   const pauseBtn = document.getElementById('pause-btn');
 
-  // --- Modal Logic (গান লোড করার মূল অংশ) ---
+  // --- Modal Logic (Song Loading) ---
 
   knowMoreButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       const card = e.target.closest(".album-card");
 
-      // 1. গানটি কার্ডের data-song অ্যাট্রিবিউট থেকে আনা হচ্ছে
+      // 1. Get song path and title
       const songSrc = card.getAttribute('data-song');
-      const title = card.querySelector("h3").textContent; // গানের নাম
+      const title = card.querySelector("h3").textContent;
 
-      // 2. আগের কোনো গান চললে থামিয়ে রিসেট করা
+      // 2. Pause and reset the currently playing audio
       audioPlayer.pause();
       audioPlayer.currentTime = 0;
 
-      // 3. যদি গানের পাথ পাওয়া যায়, তবে তা প্লেয়ারে লোড করা
+      // 3. Load the new song source
       if (songSrc) {
-        audioPlayer.src = songSrc;
-        audioPlayer.load(); // নতুন সোর্স লোড করার জন্য বাধ্যতামূলক
-        console.log(`Now loading: ${title} from path: ${songSrc}`);
+        // Check if the path is relative to the current page (common error)
+        const fullSongSrc = songSrc.startsWith('http') || songSrc.startsWith('/') ? songSrc : window.location.href.substring(0, window.location.href.lastIndexOf('/')) + '/' + songSrc;
+
+        audioPlayer.src = fullSongSrc;
+        audioPlayer.load();
+        console.log(`Now Playing: ${title} from path: ${fullSongSrc}`);
       } else {
-        // যদি গানের পাথ না থাকে, কনসোলে ওয়ার্নিং দেখাবে
         console.warn(`Local song path missing for album: ${title}. Playback unavailable.`);
         audioPlayer.src = '';
       }
 
-      // 4. Modal-এ অন্যান্য তথ্য পপুলেট করা (যেমন আগে ছিল)
+      // 4. Populate Modal with other information
       const cover = card.querySelector("img").src;
       const artist = card.querySelector("p").textContent;
       const description = card.querySelector(".description").textContent;
@@ -45,24 +56,24 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("modal-album-artist").textContent = artist;
       document.getElementById("modal-album-description").textContent = description;
 
-      // 5. Modal দেখানো
+      // 5. Show Modal
       modal.style.display = "flex";
     });
   });
 
-  // --- অডিও নিয়ন্ত্রণ লজিক (Play/Pause) ---
+  // --- Audio Control Logic (Play/Pause) ---
 
   // Play Button Logic
   playBtn.addEventListener('click', function () {
-    if (audioPlayer.src && audioPlayer.src !== window.location.href) {
-      // audioPlayer.src চেক করা হচ্ছে যাতে নিশ্চিত হয় যে এটিতে একটি ভ্যালিড গান লোড হয়েছে
+    // Check if a song source is actually loaded
+    if (audioPlayer.src !== window.location.href) {
       audioPlayer.play().catch(error => {
-        // ব্রাউজারের অটো-প্লে নীতি (Autoplay Policy) এর কারণে প্লে না হলে এই ত্রুটি হয়
-        console.error("Audio Playback Error (Autoplay Policy?):", error);
-        alert("Playback failed. Please click 'Play' again or check your audio file path.");
+        // Log and alert the Autoplay Policy error
+        console.error("Audio Playback Error (Autoplay Policy):", error);
+        alert("Playback failed. Most browsers require a user interaction (like clicking the button) to start audio playback. Please ensure the song path is correct.");
       });
     } else {
-      alert('Thee song is not loaded fully to play this song!');
+      alert('Please Click into an album to load a song first!');
     }
   });
 
@@ -71,50 +82,49 @@ document.addEventListener("DOMContentLoaded", function () {
     audioPlayer.pause();
   });
 
-  // --- Modal বন্ধ করার লজিক (বন্ধ হলে গান থামবে) ---
-  closeModalButton.addEventListener("click", () => {
-    modal.style.display = "none";
+  // Add logic to pause when the song ends
+  audioPlayer.addEventListener('ended', function () {
+    console.log("Song finished playing.");
+    // Optional: Reset button state if you had a separate play/pause toggle
   });
+
+  // --- Modal Close Logic (Pause audio when closed) ---
+  function closeModal() {
+    modal.style.display = "none";
+    // Stop and reset audio when closing the modal
+  }
+
+  closeModalButton.addEventListener("click", closeModal);
 
   window.addEventListener("click", (e) => {
     if (e.target === modal) {
-      
-      modal.style.display = "none";
+      closeModal();
     }
   });
 
 
-  // --- Recommended Albums logic code 
+  // --- Recommended Albums Search Logic ---
 
-  // প্রয়োজনীয় উপাদানগুলি ধরা (Get the necessary elements)
-  const searchInput = document.querySelector('.search-bar input');
-  const albumCards = document.querySelectorAll('.album-card');
+  // The logic inside searchInput.addEventListener('input', ...) is correct:
 
-  // ইনপুট বক্সে কোনো পরিবর্তন (টাইপ) হলে এই ফাংশনটি কাজ করবে
   searchInput.addEventListener('input', function () {
-    // ইনপুট থেকে টেক্সট নেওয়া এবং সেটিকে ছোট হাতের অক্ষরে (lowercase) পরিবর্তন করা
     const searchTerm = searchInput.value.toLowerCase();
 
-    // প্রত্যেকটি অ্যালবামের কার্ডের ওপর লুপ চালানো
     albumCards.forEach(card => {
-      // গানের নাম এবং শিল্পীর নাম নেওয়া
       const title = card.querySelector('h3').textContent.toLowerCase();
       const artist = card.querySelector('p').textContent.toLowerCase();
 
-      // চেক করা যে সার্চ টার্মটি টাইটেল বা আর্টিস্টের মধ্যে আছে কিনা
       if (title.includes(searchTerm) || artist.includes(searchTerm)) {
-        // যদি খুঁজে পাওয়া যায়, কার্ডটি দেখানো
-        card.style.display = 'block';
-        // Note: আপনার CSS যদি flex ব্যবহার করে, 'block' এর জায়গায় 'flex' ব্যবহার করতে পারেন
-        // card.style.display = 'flex';
+        // The correct display style depends on the parent (.albums) being a flex container.
+        card.style.display = 'block'; // Or 'flex' if the card itself is flex-based internally
       } else {
-        // খুঁজে না পেলে কার্ডটি লুকিয়ে রাখা
         card.style.display = 'none';
       }
     });
   });
 
-  // --- অন্যান্য লজিক (Follow Button, Smooth Scrolling) ---
+
+  // --- Other Logic (Follow Button, Smooth Scrolling) ---
 
   // Follow button logic
   document.querySelectorAll(".follow-btn").forEach((button) => {
@@ -124,7 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Smooth Scrolling for Nav Links
+  // Smooth Scrolling for Nav Links (this section was already perfect)
   document.querySelectorAll("nav ul li a").forEach((link) => {
     link.addEventListener("click", function (event) {
       event.preventDefault();
