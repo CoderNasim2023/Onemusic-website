@@ -90,7 +90,7 @@ nav ul li a:hover {
 }
 
 .intro-left button:hover {
-  background-color: coral;
+  background-color: crimson;
   color: black;
 
 }
@@ -121,6 +121,7 @@ nav ul li a:hover {
 .playlists,
 .albums,
 .reviews {
+  background-color: #586b89;
   display: flex;
   justify-content: center;
   /* Use center for consistent spacing on wrap */
@@ -129,17 +130,19 @@ nav ul li a:hover {
   gap: 20px;
   /* Added gap for consistent spacing between cards */
 }
-
+.reviews{
+  background-color: #586b89;
+}
 .playlist-card,
 .album-card,
 .review-card {
   background-color: #fff;
   border-radius: 10px;
   padding: 20px;
-  width: 200px;
+  /* width: 200px; */
   /* Changed to a more flexible width for small screens */
   flex-grow: 1;
-  max-width: 280px;
+  max-width: 200px;
   text-align: center;
   position: relative;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -158,7 +161,7 @@ nav ul li a:hover {
 .review-card img {
   /* Standardized height for album/playlist covers */
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 15px;
   margin-bottom: 10px;
 }
 
@@ -589,6 +592,7 @@ margin-bottom: 6px;
   #recommended-albums,
   #user-reviews {
     padding: 30px 15px;
+    background-color: #98ad9ebf;
   }
 
   .intro-left h1 {
