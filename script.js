@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Play Button Logic
   playBtn.addEventListener('click', function () {
+    console.log("Music started playing")
     // Check if a song source is actually loaded
     if (audioPlayer.src !== window.location.href) {
       audioPlayer.play().catch(error => {
@@ -79,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Pause Button Logic
   pauseBtn.addEventListener('click', function () {
+    console.log("Music stopped ")
     audioPlayer.pause();
   });
 
